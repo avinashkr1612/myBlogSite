@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- <meta http-equiv="refresh" content="2"> -->
+  <link rel="stylesheet" href="css/bulma.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <style media="screen">
+  *{
+    font-family: -apple-system,BlinkMacSystemFont, "Segoe UI";
+  }
+  body{
+    background: url('bg.png');
+  }
+  .navbar-item{
+    padding: 3px auto;
+  }
+  .is-shadowed{
+    box-shadow: 0px 5px 10px rgba(150,150,150,.3);
+  }
+  #sidebar{
+    width: 300px;
+    height: 100%;
+  }
+
+  .container .tabs ul {
+    background:whitesmoke
+  }
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <nav class="navbar is-shadowed is-fixed-top is-primary">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1 class="title is-5">
+          Blogger
+        </h1>
+      </div>
+      <div class="burger navbar-burger" data-target="navbar-content">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <div class="navbar-menu" id="navbar-content">
+      <div class="navbar-end" style="font-size:24px;">
+        <a href="#" class="navbar-item ">
+          <span class="icon"><i class="fab fa-twitter"></i></span>
+
+        </a>
+        <a href="#" class="navbar-item">
+          <span class="icon"><i class="fab fa-facebook-square"></i></span>
+        </a>
+        <a href="#" class="navbar-item">
+          <span class="icon">
+            <i class="fab fa-github"> </i>
+          </span>
+
+        </a>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <div class="container-hd is-fluid">
+    <div class="tabs is-centered ">
+      <ul>
+        <li class="is-active">
+          <a href="">
+            <span class="icon is-small"><i class="fas fa-home"></i></span>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span class="icon is-small"><i class="fas fa-basketball-ball"></i></span>
+            <span>Sports</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span class="icon is-small"><i class="fas fa-stethoscope"></i></span>
+            <span>Health & Fitness</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span class="icon is-small"><i class="fas fa-flask"></i></span>
+            <span>Science</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span class="icon is-small"><i class="fas fa-paw"></i></span>
+            <span>Animals</span>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <span class="icon is-small"><i class="fas fa-basketball-ball"></i></span>
+            <span>Technology</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <br>
+  <br>
+  <div class="container" >
+    <div class="title">
+      Trending now
+    </div>
+    <div class="tile is-ancestor ">
+
+      <div class="tile is-vertical is-8">
+        <div class="tile is-parent">
+          <a href="#" class="tile is-child notification is-white">
+            <figure class="image ">
+              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+            </figure>
+            <p class="title">Wide tile</p>
+            <p class="subtitle">Aligned with the right tile</p>
+            <div class="content">
+              <!-- Content -->
+            </div>
+          </a>
+
+        </div>
+        <div class="tile">
+          <div class="tile is-parent ">
+            <a href="#" class="tile is-child  notification is-white">
+              <figure class="image ">
+                <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+              </figure>
+              <p class="title">Wide tile</p>
+              <p class="subtitle">Aligned with the right tile</p>
+              <div class="content">
+                <!-- Content -->
+              </div>
+            </a>
+          </div>
+          <div class="tile is-parent">
+            <a href="#" class="tile is-child  notification is-white">
+              <figure class="image ">
+                <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+              </figure>
+              <p class="title">Wide tile</p>
+              <p class="subtitle">Aligned with the right tile</p>
+              <div class="content">
+                <!-- Content -->
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile">
+        <div class="tile is-parent is-vertical">
+          <a href="#" class="tile is-child  notification is-white">
+            <figure class="image ">
+              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+            </figure>
+            <p class="title">Vertical...</p>
+            <p class="subtitle">Top tile</p>
+          </a>
+          <a href="#" class="tile is-child  notification is-white">
+            <figure class="image ">
+              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+            </figure>
+            <p class="title">...tiles</p>
+            <p class="subtitle">Bottom tile</p>
+          </a>
+          <a href="#" class="tile is-child  notification is-white">
+            <figure class="image ">
+              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+            </figure>
+            <p class="title">Middle tile</p>
+            <p class="subtitle">With an image</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+<hr>
+<div class="container">
+  <div class="hero is-white is-shadowed">
+    <div class="hero-body ">
+      <div class="columns">
+      <div class="column is-two-thirds">
+
+      <h1 class="title is-1 has-text-primary">
+        Want to be blogger?
+      </h1>
+      <br>
+      <h1 class="subtitle is-4">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </h1>
+      <a href="#" class="button is-primary is-medium">CREATE YOUR BLOG</a>
+      <a href="#" class="button is-primary is-medium is-outlined">CREATE YOUR BLOG</a>
+    </div>
+    <div class="column is-hidden-mobile">
+      <figure>
+        <img src="recruit.png" alt="">
+      </figure>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+    // Get all "navbar-burger" elements
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    // Check if there are any navbar burgers
+    if ($navbarBurgers.length > 0) {
+      // Add a click event on each of them
+      $navbarBurgers.forEach(function ($el) {
+        $el.addEventListener('click', function () {
+          // Get the target from the "data-target" attribute
+          var target = $el.dataset.target;
+          var $target = document.getElementById(target);
+          // Toggle the class on both the "navbar-burger" and the "navbar-menu"
+          $el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+
+  });
+</script>
+</body>
+</html>
