@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<?php
+  $servername = "localhost";
+  $username = "king";
+  $password = "35@Thunder48";
+  $db = "blog";
+  // Create connection
+  $conn = mysqli_connect($servername, $username, $password,$db);
+  $query = "SELECT `b_id`, `b_title`, `img_link`, `author` FROM `blog_data`ORDER BY 'views' ASC;";
+  $result = $conn->query($query);
+
+  $i = 0;
+  $data = array();
+  while($row = $result->fetch_assoc()) {
+      $data[$i] = $row ;
+      $i++;
+    }
+   ?>
+
   <meta charset="utf-8">
   <title>MeraBlogSite</title>
   <!-- <meta http-equiv="refresh" content="2"> -->
@@ -49,6 +67,39 @@
     </div>
     <div class="navbar-menu" id="navbar-content">
       <div class="navbar-end" style="font-size:24px;">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
+          <div class="navbar-dropdown is-boxed" style="width:250px;padding:10px;">
+              <form  action="authenticate.php" method="get">
+                <div class="field">
+                  <p class="control has-icons-left has-icons-right">
+                    <input class="input" type="email" name="email" placeholder="Email">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                    <span class="icon is-small is-right">
+                      <i class="fas fa-check"></i>
+                    </span>
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control has-icons-left">
+                    <input class="input" type="password" name="pass" placeholder="Password">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-lock"></i>
+                    </span>
+                  </p>
+                </div>
+                <div class="field">
+                  <p class="control">
+                    <input type="submit" class="button is-primary" name="login" value="Login">
+                  </p>
+                </div>
+              </form>
+          </div>
+        </div>
         <a href="#" class="navbar-item ">
           <span class="icon"><i class="fab fa-twitter"></i></span>
 
@@ -62,6 +113,7 @@
           </span>
 
         </a>
+
       </div>
     </div>
   </nav>
@@ -92,19 +144,7 @@
         <li>
           <a href="">
             <span class="icon is-small"><i class="fas fa-flask"></i></span>
-            <span>Science</span>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <span class="icon is-small"><i class="fas fa-paw"></i></span>
-            <span>Animals</span>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <span class="icon is-small"><i class="fas fa-basketball-ball"></i></span>
-            <span>Technology</span>
+            <span>Science & Technology</span>
           </a>
         </li>
       </ul>
@@ -121,12 +161,13 @@
 
       <div class="tile is-vertical is-8">
         <div class="tile is-parent">
-          <a href="#" class="tile is-child notification is-white">
+          <a href="<?php echo "blog.php?id=".$data[0]['b_id'] ?>" class="tile is-child notification is-white">
             <figure class="image ">
-              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+              <img src="<?php echo $data[0]['img_link'] ; ?>">
             </figure>
-            <p class="title">Wide tile</p>
-            <p class="subtitle">Aligned with the right tile</p>
+            <span class="title"><?php echo $data[0]['b_title'];?></span>
+            <br>
+            <span class="subtitle" style="color:#999;"><?php echo "@".$data[0]['author'];?></span>
             <div class="content">
               <!-- Content -->
             </div>
@@ -135,27 +176,25 @@
         </div>
         <div class="tile">
           <div class="tile is-parent ">
-            <a href="#" class="tile is-child  notification is-white">
+            <a href="<?php echo "blog.php?id=".$data[1]['b_id'] ?>" class="tile is-child  notification is-white">
               <figure class="image ">
-                <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+                <img src="<?php echo $data[1]['img_link'];  ?>">
               </figure>
-              <p class="title">Wide tile</p>
-              <p class="subtitle">Aligned with the right tile</p>
-              <div class="content">
-                <!-- Content -->
-              </div>
+              <span class="title"><?php echo $data[1]['b_title']; ?></span>
+              <br>
+            <span class="subtitle" style="color:#999;"><?php echo "@".$data[1]['author'];?></span>
+
             </a>
           </div>
           <div class="tile is-parent">
-            <a href="#" class="tile is-child  notification is-white">
+            <a href="<?php echo "blog.php?id=".$data[2]['b_id'] ?>" class="tile is-child  notification is-white">
               <figure class="image ">
-                <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+                <img src="<?php echo $data[2]['img_link'];  ?>">
               </figure>
-              <p class="title">Wide tile</p>
-              <p class="subtitle">Aligned with the right tile</p>
-              <div class="content">
-                <!-- Content -->
-              </div>
+              <span class="title"><?php echo $data[2]['b_title']; ?></span>
+              <br>
+            <span class="subtitle" style="color:#999;"><?php echo "@".$data[2]['author'];?></span>
+
             </a>
           </div>
         </div>
@@ -163,26 +202,32 @@
 
       <div class="tile">
         <div class="tile is-parent is-vertical">
-          <a href="#" class="tile is-child  notification is-white">
+          <a href="<?php echo "blog.php?id=".$data[3]['b_id'] ?>" class="tile is-child  notification is-white">
             <figure class="image ">
-              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+              <img src="<?php echo $data[3]['img_link'];  ?>">
             </figure>
-            <p class="title">Vertical...</p>
-            <p class="subtitle">Top tile</p>
+            <span class="title"><?php echo $data[3]['b_title']; ?></span>
+            <br>
+          <span class="subtitle" style="color:#999;"><?php echo "@".$data[3]['author'];?></span>
+
           </a>
-          <a href="#" class="tile is-child  notification is-white">
+          <a href="<?php echo "blog.php?id=".$data[4]['b_id'] ?>" class="tile is-child  notification is-white">
             <figure class="image ">
-              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+              <img src="<?php echo $data[4]['img_link'];  ?>">
             </figure>
-            <p class="title">...tiles</p>
-            <p class="subtitle">Bottom tile</p>
+            <span class="title"><?php echo $data[2]['b_title']; ?></span>
+            <br>
+          <span class="subtitle" style="color:#999;"><?php echo "@".$data[4]['author'];?></span>
+
           </a>
-          <a href="#" class="tile is-child  notification is-white">
+          <a href="<?php echo "blog.php?id=".$data[5]['b_id'] ?>" class="tile is-child  notification is-white">
             <figure class="image ">
-              <img src="https://cdn.wittyfeed.com/64425/eo461q57przhwo0hx1lh.png?imwidth=1200">
+              <img src="<?php echo $data[5]['img_link'];  ?>">
             </figure>
-            <p class="title">Middle tile</p>
-            <p class="subtitle">With an image</p>
+            <span class="title"><?php echo $data[5]['b_title']; ?></span>
+            <br>
+          <span class="subtitle" style="color:#999;"><?php echo "@".$data[5]['author'];?></span>
+
           </a>
         </div>
       </div>
@@ -200,10 +245,9 @@
       </h1>
       <br>
       <h1 class="subtitle is-4">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Feel free to create a account on our page and write blogs of your choice
       </h1>
-      <a href="#" class="button is-primary is-medium">CREATE YOUR BLOG</a>
-      <a href="#" class="button is-primary is-medium is-outlined">Learn MORE</a>
+      <a href="author_reg.php" class="button is-primary is-medium">CREATE A ACCOUNT</a>
     </div>
     <div class="column is-hidden-mobile">
       <figure>
@@ -217,7 +261,7 @@
 <br>
 <div class="footer has-text-light" style="background:#00d1b2;">
 <div class="container-hd has-text-centered  ">
-  <p class="subtitle is-5 has-text-light"> This <strong>BLOG SITE </strong> was made by <strong> Avinash Kumar </strong> this project is kept <strong>OPEN SOURCE</strong></p>
+  <p class="subtitle is-5 has-text-light"> This is <strong>footer</strong> </p>
 </div>
 </div>
 
